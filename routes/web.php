@@ -21,9 +21,9 @@ Route::get('/', function () {
 
 use App\Http\Controllers\PostController;
 
+Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
 Route::get('posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('posts/{id}', [PostController::class, 'show'])->name('posts.show');
-Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 Route::get('posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
 Route::get('posts/{id}/destroy', [PostController::class, 'destroy'])->name('posts.destroy');
 Route::delete('posts/{id}/destroy', [PostController::class, 'destroy'])->name('posts.destroy');

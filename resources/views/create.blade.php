@@ -13,9 +13,9 @@
             </div>
             <div class="form-group">
                 <label for="image">Image</label>
-                <input type="text" class="form-control" name="image" id="image" placeholder="Enter image filename">
+                <input type="file" class="form-control" name="image" id="image">
             </div>
-            <button type="submit" class="btn btn-primary">Create Post</button>
+            <button type="submit" class="btn btn-primary mt-3">Create Post</button>
         </form>
     </div>
 @endsection
