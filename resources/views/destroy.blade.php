@@ -14,7 +14,11 @@
                         <p>{{ $post['body'] }}</p>
                     </div>
                     <div class="card-footer d-flex justify-content-center">
-                        <button class="btn btn-danger mx-2">Yes, Delete</button>
+                        <form action="{{ route('posts.delete', $post['id']) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger mr-3">Yes, Delete</button>
+                        </form>
                         <a href="{{ url()->previous() }}" class="btn btn-secondary ml-3">No, Cancel</a>
                     </div>
                 </div>

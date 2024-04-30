@@ -8,13 +8,16 @@
             </div>
             <div class="card-body">
                 <p class="card-text">{{ $post['body'] }}</p>
-                <img src="{{ asset('images/' . $post['image']) }}" alt="{{ $post['title'] }}" class="img-fluid">
+                <img src="{{ asset('images/posts/' . $post['image']) }}" alt="{{ $post['title'] }}" class="img-fluid">
             </div>
             <div class="card-footer">
                 <a href="{{ route('posts.index') }}" class="btn btn-primary">Back to All Posts</a>
-                <a class="btn btn-danger" href="{{ route('posts.destroy',$post['id']) }}">
+                <a class="btn btn-danger" href="{{ route('posts.destroy', $post['id']) }}">
                     Delete Post
-                  </a>
+                </a>
+                <a class="btn btn-info" href="{{ route('posts.edit', $post['id']) }}">
+                    Edit Post
+                </a>
             </div>
         </div>
     </div>

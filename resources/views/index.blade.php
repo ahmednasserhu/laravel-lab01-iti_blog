@@ -6,7 +6,7 @@
             @foreach ($posts as $post)
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <img src="{{ asset('images/' . $post['image']) }}" class="card-img-top" alt="{{ $post['title'] }}">
+                        <img src="{{ asset('images/posts/' . $post['image']) }}" class="card-img-top" alt="{{ $post['title'] }}">
 
                         <div class="card-body">
                             <h5 class="card-title">{{ $post['title'] }}</h5>
@@ -16,6 +16,7 @@
                     </div>
                 </div>
             @endforeach
+            {{$posts->links()}}
         </div>
     </div>
 @endsection
