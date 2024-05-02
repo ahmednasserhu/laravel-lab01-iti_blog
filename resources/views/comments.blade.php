@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('body')
+@section('content')
     <div class="container mt-5">
         <h2>Create a New Comment</h2>
         <form method="post" action="{{ route('comment.store') }}" enctype="multipart/form-data">

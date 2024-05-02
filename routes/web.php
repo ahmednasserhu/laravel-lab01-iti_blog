@@ -23,3 +23,7 @@ Route::delete('posts/{id}', [PostController::class, 'delete'])->name('posts.dele
 use App\Http\Controllers\CommentController;
 Route::get('comment/{id}', [CommentController::class, 'show'])->name('comment.show');
 Route::post('comment', [CommentController::class, 'store'])->name('comment.store');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

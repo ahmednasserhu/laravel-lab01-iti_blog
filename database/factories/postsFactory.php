@@ -16,7 +16,7 @@ class postsFactory extends Factory
      */
     public function definition(): array
     {
-        $image = 'default.png';
+        $image = 'post2-removebg.png';
         return [
             'title' => fake()->sentence(),
             'body' => substr(fake()->paragraph(), 0, 100),//to limit the length of paragraph 

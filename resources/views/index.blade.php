@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('body')
+@section('content')
     @php
         use Carbon\Carbon;
     @endphp
