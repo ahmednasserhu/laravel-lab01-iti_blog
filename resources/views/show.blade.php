@@ -19,6 +19,24 @@
                     Edit Post
                 </a>
             </div>
+            <div class="mt-4">
+                <h4>Comments</h4>
+                @if ($post->comments->count() > 0)
+                    <ul class="list-group">
+                        @foreach ($post->comments as $comment)
+                            <li class="list-group-item">
+                                <strong>{{ $comment->user->name }}</strong><br>
+                                {{ $comment->description }}
+                            </li>
+                        @endforeach
+                    </ul>
+                @else
+                    <p>No comments yet.</p>
+                @endif
+            </div>
+            <a class="btn btn-danger" href="{{ route('comment.show', $post['id']) }}">
+                Add Comment
+            </a>
         </div>
     </div>
 @endsection
