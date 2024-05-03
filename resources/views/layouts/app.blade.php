@@ -13,20 +13,50 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    <!-- Scripts -->
+    <!-- Vite Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <!-- Custom CSS -->
+    <style>
+        .navbar {
+            background-color: blue;
+        }
+        .navbar-brand {
+            color: white !important;
+        }
+        .navbar-nav .nav-item a {
+            color: white !important;
+            text-decoration: none;
+          
+        }
+        .nav-item{
+            margin-right: 10px; 
+            text-decoration: none;
+        }
+        .navbar-nav .nav-item a:hover {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand " href="{{ url('/') }}">
+                   ITI Application
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+                <a class="nav-item h-5" href="{{ route('posts.index')}}" style="color: white; ">
+                        Posts
+                 </a>
+                 <a class="nav-item h-5" href="{{ route('posts.create')}}" style="color: white;">
+                    Create
+                 </a>
+                 <a class="nav-item h-5" href="{{ route('posts.profile')}}" style="color: white;">
+                   Profile
+                 </a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">

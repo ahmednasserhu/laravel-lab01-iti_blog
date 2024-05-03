@@ -8,19 +8,21 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Spatie\Tags\HasTags;
 
 class posts extends Model
 {
     use HasFactory;
     use SoftDeletes;
     use Sluggable;
-
+    use HasTags;
+ 
     protected $fillable = ['title', 'body', 'image', 'author'];
 
     function Author(){
-        
+        return $this->belongsTo(User::class, 'author', 'id');
     }
-
     public function comments(): HasMany {
         return $this->hasMany(Comment::class, 'post_id', 'id');
     }

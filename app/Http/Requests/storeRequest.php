@@ -4,8 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest
+class storeRequest extends FormRequest
 {
+    protected $redirectRoute = "posts.create";//route 
+    // protected $redirect = "posts#create" //view
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -22,23 +24,24 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'unique:posts|max:30|min:3',
-            'body' => 'max:100|min:10',
-            'image'=>'image|mimes:png,jpg,jpeg,svg',
-            'author'=>'exists:users,id',
+            'title' => 'required|unique:posts|max:20|min:3',
+            'body' => 'required|max:100|min:10',
+            'image'=>'required|image|mimes:png,jpg,jpeg,svg',
         ];
     }
 
     public function messages(): array{
         return [
+            'title.required' => 'Posts title is required',
             'title.unique' => 'Posts title must be unique',
             'title.max' => 'Posts title must not exceed 20 character',
             'title.min' => 'Posts title must be at least 3 character',
+            'body.required' => 'Posts body is required',
             'body.max:' => 'Posts body must not exceed 100 character',
             'body.min:' => 'Posts body must be at least 10 character',
+            'image.required' => 'Posts image is required',
             'image.image' => 'Posts image is must be image',
             'image.mimes' => 'Posts image must be one of these formats png,jpg,jpeg,svg',
-            'author.exists' => 'Posts author does not exist',
         ];
     }
 }

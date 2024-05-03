@@ -2,7 +2,7 @@
 @section('content')
     <div class="container mt-5">
         <h2>Create a New Post</h2>
-        <form method="post" action="{{ route('posts.store') }}" enctype="multipart/form-data">
+        <form method="post" action="{{route('posts.store')}}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="title">Title</label>
@@ -19,24 +19,15 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="body">Select Your Favorite Author:</label>
-                <select id="author" name="author">
-                    @foreach ($authors as $author)
-                        <option value="{{ $author['id'] }}">{{ $author['name'] }}</option>
-                    @endforeach
-                </select>
-                @error('author')
-                <small class='text-danger'>{{ $message }}</small>
-                @enderror
-            </div>
-            <div class="form-group">
                 <label for="image">Image</label>
                 <input type="file" class="form-control" name="image" id="image">
                 @error('image')
                     <small class='text-danger'>{{ $message }}</small>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary mt-3">Create Post</button>
+            <div>
+                <button type="submit" class="btn btn-primary mt-3">Create Post</button>
+            </div>
         </form>
     </div>
 @endsection

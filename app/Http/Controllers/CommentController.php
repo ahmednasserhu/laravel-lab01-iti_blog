@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CommentStoreRequest;
 use App\Models\Comment;
 use App\Models\posts;
 use App\Models\User;
@@ -28,11 +29,13 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CommentStoreRequest $request)
     {
+        $validated = $request->validated();
         $request_parms = request();
         $request_parms = request()->all();
         $Comment= new Comment();
+        $Comment->description = $validated['description'];
         $Comment->description = $request_parms['description'];
         $Comment->user_id = $request_parms['author'];
         $Comment->post_id = $request_parms['post'];

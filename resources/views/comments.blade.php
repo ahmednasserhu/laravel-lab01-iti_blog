@@ -9,15 +9,18 @@
                 <label for="body">Description</label>
                 <textarea class="form-control" name="description" id="body" placeholder="Enter post content"></textarea>
             </div>
+            @error('description')
+                <small class='text-danger'>{{ $message }}</small>
+            @enderror
             <div class="form-group">
                 <label for="body">The User :</label>
-                <select id="author" name="author"> 
+                <select id="author" name="author">
                     @foreach ($authors as $author)
-                         <option value="{{ $author['id'] }}">{{ $author['name'] }}</option>
+                        <option value="{{ $author['id'] }}">{{ $author['name'] }}</option>
                     @endforeach
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary mt-3">Create Post</button>
+            <button type="submit" class="btn btn-primary mt-3">Add Comment</button>
         </form>
     </div>
 @endsection
