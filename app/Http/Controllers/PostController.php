@@ -15,6 +15,10 @@ use COM;
 
 class PostController extends Controller
 {
+
+    function __construct(){
+        $this->middleware("auth")->except(["index","show"]);
+    }
     
     private function file_operations($request){
 
