@@ -18,6 +18,9 @@
                 <a class="btn btn-info" href="{{ route('posts.edit', $post['id']) }}">
                     Edit Post
                 </a>
+                <a class="btn btn-secondary" href="{{ route('comment.show', $post['id']) }}">
+                    Add Comment
+                </a>
             </div>
             <div class="mt-4">
                 <h4>Comments</h4>
@@ -34,9 +37,6 @@
                     <p>No comments yet.</p>
                 @endif
             </div>
-            <a class="btn btn-danger" href="{{ route('comment.show', $post['id']) }}">
-                Add Comment
-            </a>
         </div>
     </div>
 @endsection

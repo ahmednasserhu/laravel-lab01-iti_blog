@@ -22,6 +22,7 @@ class postsFactory extends Factory
             'body' => substr(fake()->paragraph(), 0, 100),//to limit the length of paragraph 
             'image' => $image,
             'author' => rand(1,10),
+            'owner_id'=> rand(1,10),
         ];
     }
 }
